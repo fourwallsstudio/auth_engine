@@ -24,9 +24,11 @@ $ rails g auth:install
 create user model:
 ```bash
 $ rails g auth user
+$ rails db:migrate
 ```
 
 use blacklist tokens:
+
 in `config/initializers/auth.rb`
 ```ruby
 config.blacklist_tokens = true
