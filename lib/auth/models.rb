@@ -1,4 +1,4 @@
 module Auth
-  module UsersHelper
+  module Models
   end
 end
