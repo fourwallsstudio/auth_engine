@@ -88,8 +88,9 @@ module Auth
       def blacklist_token
         return false unless request.headers.key? 'Authorization'
         token = request.headers['Authorization'].split(' ').last
-        #BlacklistToken.new(token)
-        true
+        decoded = decode token
+        bl_token = BlacklistToken.new(decoded['token'], decoded['exp'])
+        bl_token.save
       end
   end
 end

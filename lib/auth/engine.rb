@@ -8,7 +8,6 @@ module Auth
 
     initializer "auth.load_app_instance_data" do |app|
       Auth.app_root = app.root
-      Auth.cache_store = app.cache_store if app.respond_to? :cache_store
     end
     
     initializer "auth", before: :load_config_initializers do |app|

@@ -22,7 +22,7 @@ module Auth
         class_path = name.camelize
         
         inject_into_class model_path, class_path, content 
-        inject_into_file model_path, "require 'bcrypt'\n\n", :before => "class User"
+        # inject_into_file model_path, "require 'bcrypt'\n\n", :before => "class User"
       end
 
       def migration_data

@@ -15,9 +15,6 @@ module Auth
   mattr_accessor :cleanup_blacklist_tokens_freq
   @@cleanup_blacklist_tokens_freq ||= 1.minute
 
-  mattr_accessor :redis_connection
-  @@redis_connection ||= nil
-
   mattr_accessor :secret_key
   @@secret_key ||= nil
 

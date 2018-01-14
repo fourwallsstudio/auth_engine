@@ -13,5 +13,3 @@ class Auth::CleanupBlacklistTokensJob < ApplicationJob
   end
 end
 
-puts "tken freeq #{Auth.cleanup_blacklist_tokens_freq}"
-

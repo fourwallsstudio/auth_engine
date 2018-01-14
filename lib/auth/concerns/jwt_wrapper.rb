@@ -15,13 +15,21 @@ module JWTWrapper
 
   def decode(token)
     begin
-    decoded = JWT.decode(token, Auth.secret_key)
-    puts "decoded jwt: #{decoded}"
-    # check if decoded token is blacklisted
-    return nil if Auth.blacklist_tokens && BlacklistToken.is_blacklisted?(decoded)
-    decoded.nil? ? nil : decoded.first
+    
+      decoded = JWT.decode(token, Auth.secret_key)
+      puts "decoded jwt: #{decoded}"
+    
+      # check if decoded token is blacklisted
+      return nil if Auth.blacklist_tokens && BlacklistToken.is_blacklisted?(decoded)
+      
+      decoded.nil? ? nil : decoded.first
+    
     rescue JWT::ExpiredSignature
-      # handle expired token
+      
+      if Auth.blacklist_tokens
+        bl_token = BlacklistToken.new decoded['token'], decoded['exp']
+        bl_token.save
+      end
     end
   end
 end

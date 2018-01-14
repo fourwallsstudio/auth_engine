@@ -1,5 +1,5 @@
 # Auth
-Short description and motivation.
+Auth is a rails enigne for running auth with json_web_tokens
 
 ## Usage
 How to use my plugin.
