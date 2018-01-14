@@ -16,9 +16,30 @@ And then execute:
 $ bundle
 ```
 
-Or install it yourself as:
+init auth:
 ```bash
-$ gem install auth
+$ rails g auth:intall
+```
+
+create user model:
+```bash
+$ rails g auth user
+```
+
+use blacklist tokens:
+in `config/initializers/auth.rb`
+`config.blacklist_tokens = true`
+note: requires 'rails-redis' and 'redis-namespace'
+
+set up cleanup_blacklist_tokens_job:
+```bash
+$ rails g auth:schedule
+```
+in `config/schedule.rb`
+set frequency of cleanup
+to run:
+```bash
+$ whatever --update-confile
 ```
 
 ## Contributing
