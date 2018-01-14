@@ -18,7 +18,7 @@ $ bundle
 
 init auth:
 ```bash
-$ rails g auth:intall
+$ rails g auth:install
 ```
 
 create user model:
@@ -28,8 +28,12 @@ $ rails g auth user
 
 use blacklist tokens:
 in `config/initializers/auth.rb`
-`config.blacklist_tokens = true`
+```ruby
+config.blacklist_tokens = true
+```
+
 note: requires 'rails-redis' and 'redis-namespace'
+
 recomended to use 'sidekiq' for activejob queue adapter
 
 set up cleanup_blacklist_tokens_job:
@@ -38,6 +42,7 @@ $ rails g auth:schedule
 ```
 in `config/schedule.rb`
 set frequency of cleanup
+
 to run:
 ```bash
 $ whatever --update-confile
