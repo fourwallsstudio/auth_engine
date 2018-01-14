@@ -30,6 +30,7 @@ use blacklist tokens:
 in `config/initializers/auth.rb`
 `config.blacklist_tokens = true`
 note: requires 'rails-redis' and 'redis-namespace'
+recomended to use 'sidekiq' for activejob queue adapter
 
 set up cleanup_blacklist_tokens_job:
 ```bash
