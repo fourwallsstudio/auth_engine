@@ -47,11 +47,11 @@ set frequency of cleanup
 
 to run:
 ```bash
-$ whatever --update-crontab
+$ whenever --update-crontab
 ```
 to stop:
 ```bash
-$ whatever --clear-crontab
+$ whenever --clear-crontab
 ```
 
 ## Contributing
