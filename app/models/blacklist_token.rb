@@ -14,11 +14,15 @@ class BlacklistToken
 
   def self.all
     result = $REDIS.hgetall('blacklist_token')
-    result.merge(result) { |_,v| JSON.parse v }
+    # refactor ?
+    result.values.map { |v| JSON.parse v }
+    #result.merge(result) { |_,v| JSON.parse v }
   end
 
   def self.expired_tokens
-    all.select { |k,v| is_expired?(v['token']) }.to_a
+    # refactor ?
+    all.select { |t| is_expired? t['token'] }
+    # all.select { |k,v| is_expired?(v['token']) }.to_a
   end
  
   def self.destroy(token)
