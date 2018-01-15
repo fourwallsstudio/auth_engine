@@ -18,6 +18,10 @@ module Auth
       def auth_manager
         request.env['auth.manager']
       end
+
+      def resource_class
+        Auth.resource_class.constantize
+      end
     end
   end
 end
