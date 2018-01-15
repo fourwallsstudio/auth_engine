@@ -9,7 +9,8 @@ class BlacklistToken
   end
 
   def self.find_by_token(token)
-    JSON.parse($REDIS.hget('blacklist_token', token))
+    result = $REDIS.hget('blacklist_token', token)
+    result.nil? ? {} : JSON.parse(result)
   end
 
   def self.all
