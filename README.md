@@ -47,7 +47,11 @@ set frequency of cleanup
 
 to run:
 ```bash
-$ whatever --update-confile
+$ whatever --update-crontab
+```
+to stop:
+```bash
+$ whatever --clear-crontab
 ```
 
 ## Contributing
