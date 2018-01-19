@@ -21,7 +21,7 @@ module JWTWrapper
       puts "decoded jwt: #{decoded}"
     
       # check if decoded token is blacklisted
-      #return nil if Auth.blacklist_tokens && BlacklistToken.is_blacklisted?(token)
+      return nil if Auth.blacklist_tokens && BlacklistToken.is_blacklisted?(token)
       
       decoded.nil? ? nil : decoded.first
     

@@ -8,7 +8,7 @@ How to use my plugin.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'auth'
+gem 'auth', git: 'git://github.com/fourwallsstudio/auth_engine.git'
 ```
 
 And then execute:
